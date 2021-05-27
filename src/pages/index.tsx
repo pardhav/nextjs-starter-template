@@ -1,6 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../../styles/Home.module.css";
+import React from "react";
+import styles from "@/styles/Home.module.css";
+import { LinkBox, Box, Heading, LinkOverlay, Text } from "@chakra-ui/react";
 
 export default function Home() {
   return (
@@ -22,12 +24,34 @@ export default function Home() {
         </p>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+          <LinkBox
+            as="article"
+            maxW="sm"
+            p="5"
+            borderWidth="1px"
+            rounded="md"
+            borderRadius="10px"
+            title="This card is built using Chakra-UI"
+            _hover={{
+              color: "#0070f3",
+              borderColor: "#0070f3",
+            }}
+          >
+            <Text as="h2" fontSize="1.5rem" mb="1rem">
+              <LinkOverlay href="https://nextjs.org/docs">
+                Documentation &rarr;
+              </LinkOverlay>
+            </Text>
+            <Text fontSize="1.25rem" lineHeight="1.5">
+              Find in-depth information about Next.js features and API.
+            </Text>
+          </LinkBox>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
+          <a
+            href="https://nextjs.org/learn"
+            className={styles.card}
+            title="This card is built using Custom CSS"
+          >
             <h2>Learn &rarr;</h2>
             <p>Learn about Next.js in an interactive course with quizzes!</p>
           </a>
@@ -35,6 +59,7 @@ export default function Home() {
           <a
             href="https://github.com/vercel/next.js/tree/master/examples"
             className={styles.card}
+            title="This card is built using Custom CSS"
           >
             <h2>Examples &rarr;</h2>
             <p>Discover and deploy boilerplate example Next.js projects.</p>
@@ -43,6 +68,7 @@ export default function Home() {
           <a
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
             className={styles.card}
+            title="This card is built using Custom CSS"
           >
             <h2>Deploy &rarr;</h2>
             <p>
